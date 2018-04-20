@@ -97,6 +97,6 @@ There are no additional modules to install, but you must have a Spotify account 
 * (100 points) Include a use of an AJAX request in your application that accesses and displays useful (for use of your application) data.
 * **(100 points) Create, run, and commit at least one migration.**
 * (100 points) Include file upload in your application and save/use the results of the file. (We did not explicitly learn this in class, but there is information available about it both online and in the Grinberg book.)
-* **(100 points) Deploy the application to the internet (Heroku) — only counts if it is up when we grade / you can show proof it is up at a URL and tell us what the URL is in the README. (Heroku deployment as we taught you is 100% free so this will not cost anything.)**
+* **(100 points) Deploy the application to the internet (Heroku) — only counts if it is up when we grade / you can show proof it is up at a URL and tell us what the URL is in the README. (Heroku deployment as we taught you is 100% free so this will not cost anything.)** http://si364final-catieo.herokuapp.com/
 * (100 points) Implement user sign-in with OAuth (from any other service), and include that you need a specific-service account in the README, in the same section as the list of modules that must be installed.
 
