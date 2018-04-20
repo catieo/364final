@@ -132,7 +132,7 @@ class TypeForm(FlaskForm):
     submit = SubmitField('Get recommendations!')
 
     def validate_type_of_search(self,field):
-        if (field != "artist") or (field != "genre"):
+        if (field.data != "artist") or (field.data != "genre"):
             raise ValidationError("Please enter \"artist\" or \"genre\" only.")
 
 class ArtistForm(FlaskForm):
@@ -147,6 +147,10 @@ class PlaylistForm(FlaskForm):
     name = StringField('What would you like to name your playlist? ',validators=[Required()])
     song_picks = SelectMultipleField('Pick the songs you\'d like to add!')
     submit = SubmitField("Save Playlist!")
+
+    def validate_name(self, field):
+        if Playlist.query.filter_by(name=field.data).first():
+            raise ValidationError('Playlist name already taken')
 
 class UpdateButtonForm(FlaskForm):
     submit = SubmitField("Update")
