@@ -5,10 +5,10 @@ Catie Olson
 This application will provide music recommendations to the user via the Spotify API based on criteria that they enter in a form.  Users can register for an account and log in.  Registered users can select which of these song recommendations he or she likes and save them in playlists.  The user can view, update, or delete any playlists they have created.  Users cannot see playlists created by other users. Any user (even if not logged in) can also view all songs and artists that have been suggested to previous users.  Users can also see all songs that have been suggested organized by artist.
 
 ### Additional Models:
-There are no additional models to install. 
+There are no additional models to install, but you must have a Spotify account to request an access token (see below). 
 
 ### How to use: 
-* IMPORTANT FIRST STEP: Go to [https://beta.developer.spotify.com/console/get-recommendations/] and scroll to the bottom of the page. Click 'Get token'. Press 'OK'. Copy the OAuth Token and paste it into spotify_info_template.py where specified. Tokens expire after a few hours, so repeat this step as necessary to run! 
+* IMPORTANT FIRST STEP: Go to [https://beta.developer.spotify.com/console/get-recommendations/] and scroll to the bottom of the page. Click 'Get token'. Press 'OK'. Copy the OAuth Token and paste it into spotify_info_template.py where specified. Tokens expire after a few hours, so repeat this step as necessary to run! You must have a Spotify account to request this token.
 * On the home page of the app, you will be asked if you would like song recommendations based on an artist or a genre. You must enter the word "artist" or the word "genre" and will be taken to the corresponding entry form.  
 * On the next page, if you chose "artist", you should enter a correct spelling of the name of any musical artist you like. If you chose "genre", you should enter a correct spelling of any musical genre you like. 
 * To see a list of all songs that have been suggested by the app from all previous searches, click the link in the navigation for "See all songs". 
