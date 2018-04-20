@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+
+{% block navigation %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+{% if len_songs != 0 %}
+    <ul>
+    {% for s in songs %}
+        <li>{{s[0]}} by {{s[1]}} {{s[2]}}</li><br>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+<br>
+<br>
+
+<form action="{{ url_for('genre_search') }}" method="POST">
+    {{ form.genre.label }}{{ form.genre() }}<br>
+    {{ form.submit() }}
+    {{ form.hidden_tag() }}
+</form>
+
+
+{% endblock %}

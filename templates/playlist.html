@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block navigation %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<h1>{{ playlist.name }}</h1>
+
+{% for song in songs %}
+      <strong>{{ song.title }}</strong>
+      </br>
+      <a href="{{ song.preview_url }}">Click to listen to a preview.</a>
+    <br><br>
+{% endfor %}
+
+{% endblock %}

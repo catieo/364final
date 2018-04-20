@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+
+{% block navigation %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+{% if not playlists %}
+You haven't made any playlists yet!
+
+{% else %}
+
+<ul>
+{% for p in playlists %}
+    <li>
+        <a href="{{ url_for('playlist',id_num=p.id)}}">{{ p.name }}</a>
+        <form method="POST"action="{{ url_for('update',playlist_name=p.name)}}">
+          {{ update_button.hidden_tag() }}
+          {{ update_button.submit() }}
+        </form>
+        <form method="POST" action="{{ url_for('delete',playlist_name=p.name)}}">
+         {{ delete_button.hidden_tag() }}
+         {{ delete_button.submit() }}
+        </form>
+    </li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% endblock %}

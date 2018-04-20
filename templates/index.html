@@ -1,0 +1,35 @@
+{% if current_user.is_authenticated %}
+    <a href="{{ url_for('logout') }}">Sign Out {{current_user.username}}</a>
+{% else %}
+    <a href="{{ url_for('login') }}">Sign In</a>
+{% endif %}
+<br>
+<br>
+
+{% block navigation %}
+<ul>
+  <li><a href="{{ url_for('index') }}">Home</a></li>
+  <li><a href="{{ url_for('all_songs') }}">See all songs</a></li>
+  <li><a href="{{ url_for('all_artists') }}">See all artists</a></li>
+  <li><a href="{{ url_for('create_playlist') }}">Create a new playlist</a></li>
+  <li><a href="{{ url_for('all_playlists') }}">See all playlists</a></li>
+</ul>
+<p>--------</p><br>
+{% endblock %}
+
+{% block content %}
+
+<h1>Welcome to a Music Discovery Experience!</h1>
+
+<a href="{{ url_for('login') }}">Click here to log in.</a>
+<br>
+<a href="{{ url_for('register') }}">If you are a new user, click here to register.</a>
+
+<form action="{{ url_for('index') }}" method="POST">
+    {{ form.type_of_search.label }}{{ form.type_of_search() }}<br>
+    {{ form.submit() }}
+    {{ form.hidden_tag() }}
+</form>
+
+
+{% endblock %}

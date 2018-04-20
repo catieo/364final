@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block navigation %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<ul>
+{% for artist in all_artists %}
+    <li><a href="{{ url_for('artist_songs',artist_name=artist.name) }}">{{ artist }}</a></li><br>
+{% endfor %}
+</ul>
+
+{% endblock %}

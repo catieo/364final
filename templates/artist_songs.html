@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+
+{% block navigation %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<h1>Saved songs for {{ artist }}</h1>
+
+<p>Most songs come with 30 second previews! Click on one to listen!</p>
+
+<ul>
+{% for s in songs %}
+    <li><a href="{{ s.preview_url }}">{{ s }}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}

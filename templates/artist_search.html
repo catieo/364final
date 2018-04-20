@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block navigation %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<form action="{{ url_for('artist_search') }}" method="POST">
+    {{ form.artist.label }}{{ form.artist() }}<br>
+    {{ form.submit() }}
+    {{ form.hidden_tag() }}
+</form>
+
+
+{% endblock %}

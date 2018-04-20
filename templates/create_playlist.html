@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block navigation %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<h1>Create a new playlist here!</h1>
+
+<form action="" method="POST">
+	{{ form.hidden_tag() }}
+	{{ form.name.label }} {{ form.name() }}
+	{{ form.song_picks.label }} {{ form.song_picks() }}
+	{{ form.submit.label }}{{ form.submit() }}
+</form>
+
+{% endblock %}

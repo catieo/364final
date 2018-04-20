@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block navigation %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<form method="POST" action="{{ url_for('update', playlist_name=playlist_name)}}">
+	{{ form.hidden_tag() }}
+	{{form.playlist_name.label }} {{ form.playlist_name() }}
+	{{ form.submit() }}
+</form>
+
+{% endblock %}
