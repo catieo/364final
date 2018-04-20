@@ -22,9 +22,11 @@ app.debug = True
 app.use_reloader = True
 app.config['SECRET_KEY'] = 'hard to guess string from si364'
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://localhost/SI364projectplancatieo"
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL') or "postgresql://localhost/SI364projectplancatieo"
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+app.config['HEROKU_ON'] = os.environ.get('HEROKU')
 
 ##################
 ### App setup ####
@@ -54,6 +56,7 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(255), unique=True, index=True)
     email = db.Column(db.String(64), unique=True, index=True)
     password_hash = db.Column(db.String(128))
+    birthday = db.Column(db.String(64))
 
     playlists = db.relationship('Playlist', backref='User')
 
@@ -111,6 +114,7 @@ class RegistrationForm(FlaskForm):
     username = StringField('Username:',validators=[Required(),Length(1,64),Regexp('^[A-Za-z][A-Za-z0-9_.]*$',0,'Usernames must have only letters, numbers, dots or underscores')])
     password = PasswordField('Password:',validators=[Required(),EqualTo('password2',message="Passwords must match")])
     password2 = PasswordField("Confirm Password:",validators=[Required()])
+    birthday = StringField('Enter your birthday:', validators=[Required()])
     submit = SubmitField('Register User')
 
     #Additional checking methods for the form
@@ -279,7 +283,7 @@ def register():
     # displays a form for a new user to register. if the form validates, redirect to '/login'
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(email=form.email.data,username=form.username.data,password=form.password.data)
+        user = User(email=form.email.data,username=form.username.data,password=form.password.data,birthday=form.birthday.data)
         db.session.add(user)
         db.session.commit()
         flash('You can now log in!')
