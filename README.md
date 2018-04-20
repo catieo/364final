@@ -74,7 +74,7 @@ There are no additional modules to install, but you must have a Spotify account 
 
 * **Your application should use data from a REST API or other source such that the application processes the data in some way and saves some information that came from the source to the database (in some way).** 
 
-At least one WTForm that sends data with a GET request to a new page.
+* At least one WTForm that sends data with a GET request to a new page.
 
 * **At least one WTForm that sends data with a POST request to the same page. (NOT counting the login or registration forms provided for you in class.)**
 
